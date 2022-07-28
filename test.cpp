@@ -22,10 +22,11 @@ int factorial(int num)
 //[n/2+1,n]
 double equal_prob(double me,double he,int n){//偶数时间
     double res=0;
-    int memo[n+1];
+    double memo[n+1];
     memo[0]=1;
     for(int index=1;index<n+1;index++){
         memo[index]=memo[index-1]*index;
+        cout<<"memo[index]:"<<memo[index]<<endl;
     }
     cout<<memo[n]<<endl;
     double factor =pow(me,n/2)*pow(he,n/2);
@@ -35,20 +36,25 @@ double equal_prob(double me,double he,int n){//偶数时间
     res=factor*cnn;
     return res;
 }
+double cal_tmp(double me,double he,int n,int i){
+
+}
 double prob(double me,double he,int n){
-    int memo[n+1];
-    for(int index=0;index<n+1;index++){
-        memo[index]=factorial(index);
-    }
-//    cout<<666<<endl;
-//    cout<<me<<'\t'<<he<<'\t'<<n<<endl;
-//    cout<<(me+he)<<endl;
-//    cout<<((me+he)!=1)<<endl;
     if((me+he)!=1)
     {
         cout<<"sum is not 1!";
         return -1;
     }
+    double memo[n+1];
+    memo[0]=1;
+    for(int index=1;index<n+1;index++){
+        memo[index]=memo[index-1]*index;
+//        cout<<"memo[index]:"<<memo[index]<<endl;
+    }
+//    cout<<666<<endl;
+//    cout<<me<<'\t'<<he<<'\t'<<n<<endl;
+//    cout<<(me+he)<<endl;
+//    cout<<((me+he)!=1)<<endl;
     double res=0;double tmp=0; double Cni=0; double factor=0;
     for (int i=n/2+1;i<=n;i++){
         Cni=memo[n]/(memo[i]*memo[n-i]);
@@ -58,11 +64,11 @@ double prob(double me,double he,int n){
         else {
             factor=factor*me/he;
         }
-//        cout<<"Cni:"<<Cni<<'\t'<<"factor:"<<factor;
+        cout<<"Cni:"<<Cni<<'\t'<<"factor:"<<factor<<endl;
 
         tmp=Cni*factor;
 //        cout<<tmp;
-        cout<<tmp<<endl;
+//        cout<<tmp<<endl;
         res+=tmp;
     }
 //    cout <<"res:"<<res<<endl;
@@ -76,7 +82,7 @@ int main() {
             break;
         }
         else {
-            double z = equal_prob(0.51, 0.49, n);
+            double z = prob(0.51, 0.49, n);
             cout << z << endl;
         }
     }
