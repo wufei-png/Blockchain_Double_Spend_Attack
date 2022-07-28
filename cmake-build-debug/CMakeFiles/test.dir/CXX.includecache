@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/onedrive/OneDrive - sjtu.edu.cn/c++files/linux_exp/test/test.cpp
+iostream
+-
+stdlib.h
+-
+string.h
+-
+vector
+-
+math.h
+-
+unordered_map
+-
+stdio.h
+-
+stdlib.h
+-
+windows.h
+-
+
